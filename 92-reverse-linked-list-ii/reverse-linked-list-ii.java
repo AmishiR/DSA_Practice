@@ -8,7 +8,7 @@ class Solution {
         ListNode leftPrev = dummy;
         ListNode curr = head;
 
-        for (int i = 0; i < left - 1; i++) {
+        for (int i = 0; i <left-1 ; i++) {
             leftPrev = curr;
             curr = curr.next;
         }
