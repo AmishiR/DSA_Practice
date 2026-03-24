@@ -1,21 +1,23 @@
 class Solution {
-    public int maxArea(int[] h) {
-        int n = h.length;
-        int maxA = 0;
-        int l=0;
-        int r=n-1;
-        while(l<r){
-            int a=0;
-            if(h[l]<h[r]){
-                a=h[l]*(r-l);
-                l++;
+    public int maxArea(int[] height) {
+        int first=0; //one pointer in start
+        int last =height.length-1; //one pointer at last
+
+        int maxarea=0; //to store area max which would be the solution
+        int value=0; //to calculate area
+
+        //it would calculate till first pointer is equal to last pointer
+        while(first<last){
+            value=Math.min(height[first],height[last])*(last-first);
+            if(maxarea<value){
+                maxarea=value;
             }
-            else{
-                a=h[r]*(r-l);
-                r--;
+            if (height[first] < height[last]) {
+                first++;
+            } else {
+                last--;
             }
-            maxA= Math.max(maxA,a);
         }
-        return maxA;
+        return maxarea;
     }
 }
