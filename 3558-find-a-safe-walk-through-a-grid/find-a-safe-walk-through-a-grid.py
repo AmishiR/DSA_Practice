@@ -8,8 +8,6 @@ class Solution(object):
 
         n, m = len(grid), len(grid[0])
         dirs = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-
-        # best[i][j] = максимальное здоровье, с которым мы попадали в клетку
         best = [[-1] * m for _ in range(n)]
         best[0][0] = health
 
@@ -20,8 +18,6 @@ class Solution(object):
 
             if i == n - 1 and j == m - 1:
                 return True
-
-            # Если это устаревшее состояние — пропускаем
             if hp < best[i][j]:
                 continue
 
