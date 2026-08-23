@@ -1,16 +1,17 @@
-class Solution:
+class Solution(object):
     def rotate(self, matrix):
-        n = len(matrix)
+        r=len(matrix)
+        c=len(matrix[0])
 
-        # Transpose
-        for i in range(n):
-            for j in range(i + 1, n):
+        for i in range(0,r):
+            for j in range(i+1,r):
                 matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
-        # Reverse each row
-        for k in range(n):
-            i, j = 0, n - 1
-            while i < j:   
-                matrix[k][i], matrix[k][j] = matrix[k][j], matrix[k][i]
-                i += 1
-                j -= 1
+        for i in range(r):
+            matrix[i].reverse()
+
+        return matrix
+        
+
+        
+        
